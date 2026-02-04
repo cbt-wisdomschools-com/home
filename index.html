@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom Foundations School - Egbewa, Ado Ekiti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Marquee Styles */
+        .marquee-container {
+            background-color: #1a5f7a;
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        .marquee-text {
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #004a8f 0%, #002b5c 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #ffc107;
+        }
+
+        .logo img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .school-info h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .school-info h2 {
+            font-size: 1.2rem;
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+
+        .school-info p {
+            font-size: 1rem;
+            color: #e0e0e0;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #003366;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 20px;
+            display: block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #004a8f;
+            color: #ffc107;
+        }
+
+        .nav-links a.active {
+            background-color: #004a8f;
+            color: #ffc107;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 43, 92, 0.8), rgba(0, 43, 92, 0.8)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ffc107;
+            color: #003366;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 2px solid #ffc107;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #ffc107;
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #ffc107;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #004a8f;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Programs Section */
+        .programs {
+            background-color: #f0f7ff;
+            padding: 80px 20px;
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-img {
+            height: 200px;
+            background-color: #004a8f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .program-content {
+            padding: 25px;
+        }
+
+        .program-content h3 {
+            font-size: 1.5rem;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .program-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .program-link {
+            color: #004a8f;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .program-link:hover {
+            color: #ffc107;
+        }
+
+        /* News Section */
+        .news {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .news-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .news-img {
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 3rem;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: #004a8f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 {
+            font-size: 1.4rem;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .news-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #004a8f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            color: #ffc107;
+        }
+
+        /* Gallery Preview */
+        .gallery-preview {
+            background-color: #003366;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #002b5c;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #ffc107;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ffc107;
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffc107;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #ffc107;
+            color: #002b5c;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #003366;
+                flex-direction: column;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-card, .program-card, .news-card {
+                padding: 20px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dropdown {
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1;
+        }
+
+        .dropdown a {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-links li:hover .dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            🎓 ADMISSION FOR 2026/2026 ACADEMIC SESSION IS IN PROGRESS 🎓 APPLY NOW AT WISDOM FOUNDATIONS SCHOOL, EGBEWA, ADO EKITI 🎓 LIMITED SPACES AVAILABLE 🎓
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="img/mainlogo.png" alt="Wisdom Foundations School Logo">
+                </div>
+                <div class="school-info">
+                    <h1>WISDOM FOUNDATIONS SCHOOL</h1>
+                    <h2>Education with Distinction</h2>
+                    <p>Gateway to the University | Egbewa, Ado Ekiti</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Academics</a></li>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="#">Student Life</a></li>
+                <li><a href="#">News & Events</a></li>
+                <li><a href="#">Contact</a></li>
+                   <li>
+                    <a href="#">E-Portal <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown">
+                        <a href="https://cbt-wisdomschools-com.github.io/wisdom-exams-portal.github.io/index.html/" style="color: red">CBT</a>
+                        <a href="https://cbt-wisdomschools-com.github.io/Tests/" style="color: red" >Test</a>
+                        <a href="https://cbt-wisdomschools-com.github.io/Assignment/" style="color: red" >Assignment</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Shaping Future Leaders Through Excellence</h2>
+            <p>At Wisdom Foundations School, we provide holistic education that combines academic excellence with moral values and character development.</p>
+            <a href="#" class="cta-button">Apply for Admission 2025/2026</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Choose Wisdom Foundations?</h2>
+        <p class="section-subtitle">We are committed to providing world-class education that prepares students for university and beyond</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Academic Excellence</h3>
+                <p>Consistently producing outstanding results in WAEC, NECO, and JAMB examinations with a 100% university placement rate.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <h3>Experienced Teachers</h3>
+                <p>Our qualified and dedicated teaching staff provide personalized attention to help each student reach their full potential.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h3>Modern Facilities</h3>
+                <p>State-of-the-art laboratories, library, ICT center, and sports facilities to support holistic development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="programs-container">
+            <h2 class="section-title">Our Academic Programs</h2>
+            <p class="section-subtitle">We offer comprehensive educational programs from Junior Secondary to Senior Secondary</p>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-img">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Junior Secondary (JSS 1-3)</h3>
+                        <p>Foundational education with a broad curriculum covering sciences, arts, and technology.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-img">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Senior Secondary (Science)</h3>
+                        <p>Specialized science program preparing students for careers in medicine, engineering, and technology.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-img">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Senior Secondary (Arts & Commercial)</h3>
+                        <p>Comprehensive programs in arts, business studies, and social sciences.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <h2 class="section-title">Latest News & Events</h2>
+        <p class="section-subtitle">Stay updated with what's happening at Wisdom Foundations School</p>
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">March 15, 2026</div>
+                    <h3>2026 Inter-House Sports Competition</h3>
+                    <p>Annual sports competition showcasing student talents in various athletic events.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-img">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">February 28, 2026</div>
+                    <h3>WAEC Excellence Awards</h3>
+                    <p>15 of our students received distinction awards in the 2024 WAEC examinations.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-img">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">January 10, 2026</div>
+                    <h3>University Admission Success</h3>
+                    <p>100% of our 2024 graduates gained admission into Nigerian universities.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="gallery-preview">
+        <div class="gallery-container">
+            <h2 class="section-title">School Gallery</h2>
+            <p class="section-subtitle">A glimpse into life at Wisdom Foundations School</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="School Building">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Classroom">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Science Lab">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sports">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Egbewa, Ado Ekiti, Ekiti State</p>
+                <p><i class="fas fa-phone"></i> +234 803 123 4567</p>
+                <p><i class="fas fa-envelope"></i> info@wisdomfoundations.edu.ng</p>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 8:00 AM - 4:00 PM</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Admission Requirements</a></li>
+                    <li><a href="#">School Fees</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                    <li><a href="#">School Portal</a></li>
+                    <li><a href="#">Alumni Network</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for updates and news</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2026 Wisdom Foundations School, Egbewa, Ado Ekiti. All Rights Reserved.</p>
+            <p>Motto: Education with Distinction | Gateway to the University</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
